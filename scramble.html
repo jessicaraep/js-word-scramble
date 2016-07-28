@@ -14,16 +14,16 @@
 
         while (playing) {
 
-            var random_index = Math.floor(Math.random() * 4);
+            var randomIndex = Math.floor(Math.random() * WORDS.length);
 
-            var random_word = WORDS[random_index]; // Grab a random word from the WORDS array
+            var randomWord = WORDS[randomIndex]; // Grab a random word from the WORDS array
 
-            var scrambled_word = SCRAMBLED[random_index];// Grab the corresponding scrambled word from the SCRAMBLED array
+            var scrambledWord = SCRAMBLED[randomIndex];// Grab the corresponding scrambled word from the SCRAMBLED array
 
-            var user_guess = prompt("Guess what the unscrambled version of this word is: " + scrambled_word);// prompt the user to guess the original word when given the scrambled word
+            var userGuess = prompt("Guess what the unscrambled version of this word is: " + scrambledWord).toLowerCase().trim();// prompt the user to guess the original word when given the scrambled word
 
-            if (user_guess !== random_word) {
-                alert("I'm sorry, that's not the correct word. The correct word is " + random_word + ".");
+            if (userGuess !== randomWord) {
+                alert("I'm sorry, that's not the correct word. The correct word is " + randomWord + ".");
             } else {
                 alert("Congratulations! You guessed the correct word.")
             }
@@ -35,7 +35,7 @@
             // What does setting the playing variable do?
         }
 
-        alert("goodbye!");
+        // alert("goodbye!");
     </script>
     
 </body>
