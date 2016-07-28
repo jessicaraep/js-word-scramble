@@ -12,13 +12,29 @@
 
         var playing = true;
 
+        function scrambleWord(word) {
+            var scrambledWord = [];
+            while (word.length > 0) {
+            
+                var randomLetter = Math.floor(Math.random() * word.length);
+                scrambledWord.push(word[randomLetter]);
+                word = word.replace(word[randomLetter], "");
+            }
+
+            var scrambledWordString = scrambledWord.join("");
+
+            return scrambledWordString
+        }
+
         while (playing) {
 
             var randomIndex = Math.floor(Math.random() * WORDS.length);
 
             var randomWord = WORDS[randomIndex]; // Grab a random word from the WORDS array
 
-            var scrambledWord = SCRAMBLED[randomIndex];// Grab the corresponding scrambled word from the SCRAMBLED array
+            var scrambledWord = scrambleWord(randomWord);
+
+            // var scrambledWord = SCRAMBLED[randomIndex];// Grab the corresponding scrambled word from the SCRAMBLED array
 
             var userGuess = prompt("Guess what the unscrambled version of this word is: " + scrambledWord).toLowerCase().trim();// prompt the user to guess the original word when given the scrambled word
 
